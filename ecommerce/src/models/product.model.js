@@ -51,14 +51,13 @@ const productSchema = new Schema(
         },
     },
     {
-        timestamps: true, // Añade campos createdAt y updatedAt automáticamente
-        versionKey: false, // Elimina el campo __v de versión
+        timestamps: true, 
+        versionKey: false, 
     }
 );
 
-// Agrega mongoose-paginate-v2 para habilitar las funcionalidades de paginación.
 productSchema.plugin(paginate);
-// Crea el modelo basado en el esquema
+
 const Product = model("products", productSchema);
 
 export default Product;

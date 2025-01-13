@@ -5,12 +5,30 @@
 <main>
     <section>
         <h3>Productos</h3>
-        {{!-- Uso de nomenclatura BEM (B de bloque, E de elemento y M de modificador)--}}
         <div class="products">
-            <div class="products__list">
-                <ul class="products__list__item" id="products-list"></ul>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>
+                            Precio
+                            <button id="sort-price-asc" class="btn btn-sm btn-light">▲</button>
+                            <button id="sort-price-desc" class="btn btn-sm btn-light">▼</button>
+                        </th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="products-table-body">
+
+                </tbody>
+            </table>
+            <div class="actions">
+                <button id="btn-refresh-products-list" class="btn btn-primary">Recargar Lista</button>
+                <button id="btn-view-cart" class="btn btn-primary">Ver Carrito</button>
+                <button id="btn-clear-cart" class="btn btn-danger">Vaciar Carrito</button>
             </div>
-            <button id="btn-refresh-products-list">Recargar Lista</button>
         </div>
     </section>
 </main>

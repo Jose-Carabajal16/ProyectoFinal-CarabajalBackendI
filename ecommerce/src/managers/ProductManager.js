@@ -38,17 +38,18 @@ export default class ProductManager {
 
             const filters = $and.length > 0 ? { $and } : {};
 
-            // Opciones de paginación y ordenamiento
+
             const sort = {
-                asc: { title: 1 },
-                desc: { title: -1 },
+                asc: { price: 1 },  
+                desc: { price: -1 }, 
             };
+            
 
             const paginationOptions = {
-                limit: params?.limit || 10, // Límite de productos por página
-                page: params?.page || 1, // Página actual
-                sort: sort[params?.sort] || {}, // Ordenamiento
-                lean: true, // Convertir a objetos planos
+                limit: params?.limit || 10, 
+                page: params?.page || 1, 
+                sort: sort[params?.sort] || {}, 
+                lean: true, 
             };
 
             return await this.#product.paginate(filters, paginationOptions);
@@ -86,7 +87,7 @@ export default class ProductManager {
             const productFound = await this.#findOneById(id);
 
             const newValues = {
-                ...productFound.toObject(), // Convertir el documento a objeto plano
+                ...productFound.toObject(), 
                 ...data,
                 status: data.status !== undefined ? convertToBoolean(data.status) : productFound.status,
             };
